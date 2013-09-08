@@ -1,0 +1,23 @@
+imLinuxate helps port software to Linux indirectly. imLinuxate helps improve Linux drivers
+indirectly.
+
+The idea is explained here.
+
+Say, John loves Ubuntu and Ubuntu is great for him. He does everything under Ubuntu except
+occasionally doing image editing using Photoshop under Windows. He wishes that one day he can use
+Photoshop under Ubuntu.
+
+Every time John uses Windows, there is a slight Ubuntu market share drop. John then installed
+imLinuxate. imLinuxate tells the world "This computer is Ubuntu" while in fact it's Windows.
+
+Many Linux users, like me, like John are dual-booters. imLinuxate makes the Linux market share not
+drop when we use other operating systems.
+
+Ideally if enough people use imLinuxate, there could be a boost in desktop Linux market share than
+that of today. As a result, software/hardware vendors will take Linux more seriously, and produce
+Linux-friendly products.
+
+Back to John story. Maybe one year from now, Adobe releases Photoshop for Linux after seeing the
+Linux usage increases. John can finally use Photoshop under Ubuntu.
+
+Spread this software. imLinuxate is useless unless it is used by millions.

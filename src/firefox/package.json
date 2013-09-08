@@ -1,0 +1,11 @@
+{
+    "name"       : "imlinuxate",
+    "fullName"   : "imLinuxate",
+    "id"         : "jid1-eKns3PFzkpiddg",
+    "description": "Make your operating system appear to be Linux.",
+    "author"     : "Xinkai Chen <yeled.nova@gmail.com>",
+    "license"    : "LGPL3",
+    "version"    : "0.1",
+    "icon"       : "data/icon48.png",
+    "permissions": ["private-browsing"]
+}

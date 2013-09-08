@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>imLinuxate</title>
+    <style>
+        #status.working {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<h1>imLinuxate</h1>
+<select>
+    <optgroup label="Linux">
+        <option value="Ubuntu">Ubuntu</option>
+        <option value="Linux Mint">Linux Mint</option>
+        <option value="Debian">Debian</option>
+        <option value="Fedora">Fedora</option>
+        <option value="Arch">Arch</option>
+        <option value="Gentoo">Gentoo</option>
+        <option value="openSUSE">openSUSE</option>
+    </optgroup>
+    <optgroup label="Other free OS">
+        <option value="FreeBSD">FreeBSD</option>
+    </optgroup>
+</select>
+<section>
+    <button type="button">Disable for 3 minutes</button>
+    <button type="button">Enable</button>
+</section>
+<footer>
+    Status: <span id="status" class="working">Working</span>
+</footer>
+</body>
+</html>
