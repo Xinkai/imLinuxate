@@ -33,4 +33,8 @@ chrome:	cleanChrome
 	@cp src/shared/icon*.png build/chrome
 
 	coffee -bc -o build/chrome src/shared/contentscript.coffee
-	coffee -bc -o build/chrome src/chrome/request.coffee
+	coffee -bc -o build/chrome src/shared/popup.coffee 
+	coffee -bc -o build/chrome src/chrome/background.coffee
+
+test:
+	@coffee src/shared/test.coffee
