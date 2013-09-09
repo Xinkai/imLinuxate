@@ -7,5 +7,7 @@
     "license"    : "LGPL3",
     "version"    : "0.1",
     "icon"       : "data/icon48.png",
-    "permissions": ["private-browsing"]
+    "permissions": {
+        "private-browsing": true
+    }
 }
