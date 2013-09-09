@@ -3,3 +3,6 @@
 /build
 
 src/*/*.js
+
+# vim swap file
+*.swp
