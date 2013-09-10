@@ -14,4 +14,7 @@ for testname, testcase of testcases
     against = testcase.against
 
     for key in ["appVersion", "platform", "oscpu", "userAgent"]
-        assert.strictEqual(faked[key], against[key], "#{testname}:#{key} failed.")
+        assert.strictEqual(faked[key], against[key],
+            """#{testname}:#{key} failed.
+            #{faked[key]}!==
+            #{against[key]}.""")

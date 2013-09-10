@@ -47,14 +47,26 @@ exports.testcases =
             oscpu: "Linux x86_64"
             userAgent: "Mozilla/5.0 (X11; Linux x86_64; rv:23.0) Gecko/20100101 Firefox/23.0"
 
-    "OSX 10.8 Chrome 29": 
+    "OSX 10.8.0 Chrome 29":
         test: 
-            undefined
+            appVersion: "5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36"
+            platform: "MacIntel"
+            oscpu: undefined
+            userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36"
         against:
-            undefined
+            appVersion: "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36"
+            platform: "Linux x86_64"
+            oscpu: undefined
+            userAgent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.65 Safari/537.36"
         
-    "OSX 10.8 Firefox 23":
+    "OSX 10.8.0 Firefox 23":
         test:
-            undefined
+            appVersion: "5.0 (Macintosh)"
+            platform: "MacIntel"
+            oscpu: "Intel Mac OS X 10.8"
+            userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:23.0) Gecko/20100101 Firefox/23.0"
         against:
-            undefined
+            appVersion: "5.0 (X11)"
+            platform: "Linux x86_64"
+            oscpu: "Linux x86_64"
+            userAgent: "Mozilla/5.0 (X11; Linux x86_64; rv:23.0) Gecko/20100101 Firefox/23.0"

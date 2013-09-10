@@ -23,9 +23,16 @@ class Faker
                           .split("; ")
 
         wow64Index = array.indexOf("WOW64")
-        @is64bit = wow64Index isnt -1
-        if @is64bit
+        osxIndex = array.indexOf(array.filter( (element) -> element.indexOf('OS X') isnt -1 )[0])
+
+        if wow64Index isnt -1
             array.splice(wow64Index, 1) # remove WOW64
+
+        if osxIndex isnt -1
+            array.splice(osxIndex, 1) # remove Intel Mac OS X 10.8
+
+        @is64bit = (wow64Index & osxIndex) isnt -1
+        if @is64bit
             array[0] = "X11; Linux x86_64"
         else
             array[0] = "X11; Linux i686"
