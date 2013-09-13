@@ -25,10 +25,10 @@ chrome.runtime.getPlatformInfo (info) ->
         else
 
 listener = (details) ->
-    if disabled_seconds >= 0
+    if disabledSeconds >= 0
         for h in details.requestHeaders
             if h.name is 'User-Agent'
-                h.value = "Overriden"
+#                h.value = "Overriden"
                 break
 
         return {
