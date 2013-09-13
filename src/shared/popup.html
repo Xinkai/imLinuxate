@@ -6,28 +6,17 @@
         #status.working {
             color: green;
         }
+        #status.disabled {
+            color: orange;
+        }
     </style>
     <script src="popup.js"></script>
 </head>
 <body>
 <h1>imLinuxate</h1>
-<label>Promote: <select>
-    <optgroup label="Linux">
-        <option value="Ubuntu">Ubuntu</option>
-        <option value="Linux Mint">Linux Mint</option>
-        <option value="Debian">Debian</option>
-        <option value="Fedora">Fedora</option>
-        <option value="Arch">Arch</option>
-        <option value="Gentoo">Gentoo</option>
-        <option value="openSUSE">openSUSE</option>
-    </optgroup>
-    <optgroup label="Other free OS">
-        <option value="FreeBSD">FreeBSD</option>
-    </optgroup>
-</select></label>
 <section>
-    <button type="button">Disable for 3 minutes</button>
-    <button type="button">Enable</button>
+    <button type="button" id="btnDisable">Disable for 3 minutes</button>
+    <button type="button" id="btnEnable">Enable</button>
 </section>
 <footer>
     Status: <span id="status">Working</span>
