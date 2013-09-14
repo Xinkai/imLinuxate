@@ -72,29 +72,31 @@ if typeof exports isnt "undefined"
     exports.Faker = Faker
 
 else
+    fakedNav = new Faker(navigator).get()
     # when running inside a browser
-    inject = ->
+    inject = (fakedJSONStr) ->
+        faked = JSON.parse(fakedJSONStr)
         Object.defineProperties(navigator, {
             appVersion:
                 __proto__: null
                 configurable: false
-                get: -> "Overriden"
+                get: -> faked.appVersion
             platform:
                 __proto__: null
                 configurable: false
-                get: -> "Overriden"
+                get: -> faked.platform
             oscpu:
                 __proto__: null
                 configurable: false
-                get: -> "Overriden"
+                get: -> faked.oscpu
             userAgent:
                 __proto__: null
                 configurable: false
-                get: -> "Overriden"
+                get: -> faked.userAgent
         })
         console.log "imLinuxate injected."
 
     script = document.createElement("script")
-    text = document.createTextNode("(#{inject.toString()})()")
+    text = document.createTextNode("(#{inject.toString()})('#{JSON.stringify(fakedNav)}')")
     script.appendChild(text)
     document.documentElement.appendChild(script)
