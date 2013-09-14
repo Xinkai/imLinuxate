@@ -5,50 +5,64 @@ formatSeconds = (seconds) ->
     s = "0" + (seconds % 60)
     return m.substr(m.length - 2) + ":" + s.substr(s.length - 2)
 
-if chrome
+if typeof chrome isnt "undefined"
     bgPage = chrome.extension.getBackgroundPage()
     console = bgPage.console
 
-#if not self.port
-#    # A simple self.port implementation, the idea is from Firefox Addon SDK
-#    self.port = new Object(null)
-#    port.on = (event, payload) ->
-#
-#    console.log "no self.port"
-#else
-#    console.log "self.port", self.port
+    try
+        popup =
+            on: (type, callback) ->
+                chrome.runtime.onMessage.addListener (payload) ->
+                    if payload.type is type
+                        callback(payload.msg)
+            emit: (type, msg) ->
+                payload =
+                    type: type
+                    msg: msg
+                chrome.runtime.sendMessage payload
 
-document.addEventListener('DOMContentLoaded', () ->
+            onload: (callback) ->
+                document.addEventListener('DOMContentLoaded', callback)
+
+    catch error
+        console.error error
+else
+    popup =
+        emit: self.port.emit
+        on: self.port.on
+
+        onload: (callback) ->
+            # In Firefox, DOM is already ready.
+            callback()
+
+
+
+popup.onload ->
     $status = document.getElementById("status")
     $btnDisable = document.getElementById("btnDisable")
     $btnEnable = document.getElementById("btnEnable")
 
-    chrome.runtime.sendMessage({
-        type: "query"
-    }, (res) ->
-        if res.isFreeOS
+    popup.on "queryresult", (result) ->
+        if result.isFreeOS
             $status.innerHTML = "Running on free OS"
             $status.className = "working"
             return # TODO: for debugging
             $btnDisable.disabled = true
             $btnEnable.disabled = true
+        echoCountdown(result.cd)
 
-        echoCountdown(res.cd)
-    )
+    popup.on "countdown", (payload) ->
+        echoCountdown(payload.cd)
+
+    popup.emit("query")
 
     $btnDisable.addEventListener("click", ->
-        chrome.runtime.sendMessage
-            type: "disable"
+        popup.emit("disable")
     )
 
     $btnEnable.addEventListener("click", ->
-        chrome.runtime.sendMessage
-            type: "enable"
+        popup.emit("enable")
     )
-
-    chrome.runtime.onMessage.addListener (msg, sender) ->
-        if sender.id is "apodjlbkopihjeoimcofbeldegnbdmob"
-            echoCountdown(msg.cd)
 
     echoCountdown = (cd) ->
         if cd > 0
@@ -59,4 +73,3 @@ document.addEventListener('DOMContentLoaded', () ->
             $status.className = "working"
 
     console.log "popup DOM Loaded"
-)

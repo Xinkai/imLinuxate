@@ -67,7 +67,7 @@ class Faker
             appVersion: @getAppVersion()
         }
 
-if exports
+if typeof exports isnt "undefined"
     # when running test in a nodejs environment
     exports.Faker = Faker
 

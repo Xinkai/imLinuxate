@@ -13,7 +13,8 @@ firefox: cleanFirefox
 	@mkdir build/firefox/data
 	@mkdir build/firefox/lib
 	
-	coffee -bc -o build/firefox/lib src/firefox/lib/main.coffee
+	coffee -bcj build/firefox/lib/main.js src/firefox/lib/browser.coffee src/shared/main.coffee
+	coffee -bc -o build/firefox/data src/shared/popup.coffee
 	coffee -bc -o build/firefox/data src/shared/contentscript.coffee
 	@cp src/firefox/package.json build/firefox/
 
@@ -34,7 +35,7 @@ chrome:	cleanChrome
 
 	coffee -bc -o build/chrome src/shared/contentscript.coffee
 	coffee -bc -o build/chrome src/shared/popup.coffee 
-	coffee -bc -o build/chrome src/chrome/background.coffee
+	coffee -bcj build/chrome/main.js src/chrome/browser.coffee src/shared/main.coffee
 
 test:
 	@coffee src/shared/test.coffee

@@ -20,7 +20,7 @@
 
     "author"    : "Xinkai Chen <yeled.nova@gmail.com>",
     "background": {
-        "scripts": ["background.js"]
+        "scripts": ["main.js"]
     },
 
     "content_scripts": [
